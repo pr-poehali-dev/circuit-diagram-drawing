@@ -30,7 +30,7 @@ const Index = () => {
       name: "Реле (Relay)",
       voltage: "5V",
       current: "70 мА",
-      pins: "Pin 13",
+      pins: "Pin 7",
       description: "Модуль реле 1-канальный"
     },
     {
@@ -83,7 +83,7 @@ const Index = () => {
             <text x="370" y="395" fill="#000" fontSize="11" textAnchor="end" fontWeight="bold">D2</text>
             
             <circle cx="400" cy="430" r="4" fill="#000" />
-            <text x="370" y="435" fill="#000" fontSize="11" textAnchor="end" fontWeight="bold">D13</text>
+            <text x="370" y="435" fill="#000" fontSize="11" textAnchor="end" fontWeight="bold">D7</text>
             
             <circle cx="620" cy="310" r="4" fill="#000" />
             <text x="650" y="315" fill="#000" fontSize="11" fontWeight="bold">A4 (SDA)</text>
@@ -99,55 +99,55 @@ const Index = () => {
             <text x="140" y="230" textAnchor="middle" fill="#000" fontSize="12">LCD 16×2 (I²C)</text>
             
             <circle cx="75" cy="105" r="3" fill="#000" />
-            <text x="85" y="110" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
+            <text x="90" y="109" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
             
             <circle cx="75" cy="135" r="3" fill="#000" />
-            <text x="85" y="140" fill="#000" fontSize="10" fontWeight="bold">GND</text>
+            <text x="90" y="139" fill="#000" fontSize="10" fontWeight="bold">GND</text>
             
             <circle cx="75" cy="165" r="3" fill="#000" />
-            <text x="85" y="170" fill="#000" fontSize="10" fontWeight="bold">SDA</text>
+            <text x="90" y="169" fill="#000" fontSize="10" fontWeight="bold">SDA</text>
             
             <circle cx="75" cy="195" r="3" fill="#000" />
-            <text x="85" y="200" fill="#000" fontSize="10" fontWeight="bold">SCL</text>
+            <text x="90" y="199" fill="#000" fontSize="10" fontWeight="bold">SCL</text>
 
             <rect x="60" y="340" width="140" height="110" fill="none" stroke="#000" strokeWidth="3" />
             <text x="130" y="320" textAnchor="middle" fill="#000" fontSize="16" fontWeight="bold">U1</text>
             <text x="130" y="470" textAnchor="middle" fill="#000" fontSize="12">DHT22</text>
             
             <circle cx="75" cy="365" r="3" fill="#000" />
-            <text x="85" y="370" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
+            <text x="90" y="369" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
             
             <circle cx="75" cy="395" r="3" fill="#000" />
-            <text x="85" y="400" fill="#000" fontSize="10" fontWeight="bold">DATA</text>
+            <text x="90" y="399" fill="#000" fontSize="10" fontWeight="bold">DATA</text>
             
             <circle cx="75" cy="425" r="3" fill="#000" />
-            <text x="85" y="430" fill="#000" fontSize="10" fontWeight="bold">GND</text>
+            <text x="90" y="429" fill="#000" fontSize="10" fontWeight="bold">GND</text>
 
             <rect x="760" y="250" width="150" height="120" fill="none" stroke="#000" strokeWidth="3" />
             <text x="835" y="230" textAnchor="middle" fill="#000" fontSize="16" fontWeight="bold">K1</text>
             <text x="835" y="390" textAnchor="middle" fill="#000" fontSize="12">Реле 5В</text>
             
             <circle cx="775" cy="280" r="3" fill="#000" />
-            <text x="785" y="285" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
+            <text x="790" y="284" fill="#000" fontSize="10" fontWeight="bold">VCC</text>
             
             <circle cx="775" cy="315" r="3" fill="#000" />
-            <text x="785" y="320" fill="#000" fontSize="10" fontWeight="bold">GND</text>
+            <text x="790" y="319" fill="#000" fontSize="10" fontWeight="bold">GND</text>
             
             <circle cx="775" cy="350" r="3" fill="#000" />
-            <text x="785" y="355" fill="#000" fontSize="10" fontWeight="bold">IN</text>
+            <text x="790" y="354" fill="#000" fontSize="10" fontWeight="bold">IN</text>
 
             <rect x="760" y="470" width="150" height="130" fill="none" stroke="#000" strokeWidth="3" />
             <text x="835" y="450" textAnchor="middle" fill="#000" fontSize="16" fontWeight="bold">R1</text>
             <text x="835" y="620" textAnchor="middle" fill="#000" fontSize="12">Потенциометр 10кΩ</text>
             
             <circle cx="775" cy="500" r="3" fill="#000" />
-            <text x="785" y="505" fill="#000" fontSize="10" fontWeight="bold">1 (+5V)</text>
+            <text x="790" y="504" fill="#000" fontSize="10" fontWeight="bold">1 (+5V)</text>
             
             <circle cx="775" cy="540" r="3" fill="#000" />
-            <text x="785" y="545" fill="#000" fontSize="10" fontWeight="bold">2 (OUT)</text>
+            <text x="790" y="544" fill="#000" fontSize="10" fontWeight="bold">2 (OUT)</text>
             
             <circle cx="775" cy="580" r="3" fill="#000" />
-            <text x="785" y="585" fill="#000" fontSize="10" fontWeight="bold">3 (GND)</text>
+            <text x="790" y="584" fill="#000" fontSize="10" fontWeight="bold">3 (GND)</text>
 
             <line x1="220" y1="105" x2="300" y2="105" stroke="#000" strokeWidth="2" />
             <line x1="300" y1="105" x2="300" y2="310" stroke="#000" strokeWidth="2" />
@@ -186,10 +186,12 @@ const Index = () => {
             <line x1="260" y1="390" x2="400" y2="390" stroke="#000" strokeWidth="2" markerEnd="url(#arrow)" />
             <text x="290" y="385" fill="#000" fontSize="10" fontWeight="bold">DATA</text>
 
-            <line x1="620" y1="430" x2="720" y2="430" stroke="#000" strokeWidth="2" />
-            <line x1="720" y1="430" x2="720" y2="350" stroke="#000" strokeWidth="2" />
+            <line x1="400" y1="430" x2="360" y2="430" stroke="#000" strokeWidth="2" />
+            <line x1="360" y1="430" x2="360" y2="530" stroke="#000" strokeWidth="2" />
+            <line x1="360" y1="530" x2="720" y2="530" stroke="#000" strokeWidth="2" />
+            <line x1="720" y1="530" x2="720" y2="350" stroke="#000" strokeWidth="2" />
             <line x1="720" y1="350" x2="775" y2="350" stroke="#000" strokeWidth="2" markerEnd="url(#arrow)" />
-            <text x="660" y="425" fill="#000" fontSize="10" fontWeight="bold">D13</text>
+            <text x="520" y="525" fill="#000" fontSize="10" fontWeight="bold">D7</text>
             
             <line x1="620" y1="310" x2="730" y2="310" stroke="#000" strokeWidth="2" />
             <line x1="730" y1="310" x2="730" y2="280" stroke="#000" strokeWidth="2" />
