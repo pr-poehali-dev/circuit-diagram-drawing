@@ -1,264 +1,252 @@
+import { Card } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import Icon from "@/components/ui/icon";
+
 const Index = () => {
+  const components = [
+    {
+      name: "Arduino UNO",
+      voltage: "5V",
+      current: "50 мА",
+      pins: "ATmega328P",
+      description: "Основной микроконтроллер"
+    },
+    {
+      name: "DHT22",
+      voltage: "3.3-5V",
+      current: "2.5 мА",
+      pins: "Pin 2",
+      description: "Датчик температуры и влажности"
+    },
+    {
+      name: "LCD 16x2 (I2C)",
+      voltage: "5V",
+      current: "20 мА",
+      pins: "SDA, SCL (A4, A5)",
+      description: "Символьный дисплей 16x2"
+    },
+    {
+      name: "Реле (Relay)",
+      voltage: "5V",
+      current: "70 мА",
+      pins: "Pin 13",
+      description: "Модуль реле 1-канальный"
+    },
+    {
+      name: "Потенциометр 10кОм",
+      voltage: "5V",
+      current: "< 1 мА",
+      pins: "A0 (Analog)",
+      description: "Регулятор для ручного управления"
+    }
+  ];
+
+  const powerSpecs = {
+    totalVoltage: "5V",
+    totalCurrent: "143.5 мА",
+    powerSupply: "USB / Внешний блок питания 7-12V"
+  };
+
   return (
-    <div className="min-h-screen bg-gray-200 p-4">
-      <div className="max-w-[297mm] mx-auto bg-white shadow-lg" style={{ minHeight: '210mm' }}>
-        <div className="relative w-full border-[3px] border-black" style={{ minHeight: '297mm' }}>
-          
-          <div className="absolute top-0 left-0 w-5 h-full border-r border-black"></div>
-          
-          <div className="absolute top-[20mm] left-[25mm] right-[5mm] bottom-[60mm]">
-            <div className="text-center mb-6">
-              <p className="text-[9pt] mb-1">ПРИНЦИПИАЛЬНАЯ ЭЛЕКТРИЧЕСКАЯ СХЕМА</p>
-            </div>
-
-            <svg viewBox="0 0 1000 600" className="w-full" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                  <path d="M 0 0 L 6 3 L 0 6 Z" fill="#000" />
-                </marker>
-              </defs>
-
-              <rect x="400" y="200" width="200" height="200" fill="none" stroke="#000" strokeWidth="2" />
-              <text x="500" y="185" textAnchor="middle" fill="#000" fontSize="12" fontWeight="bold">DD1</text>
-              
-              <circle cx="400" cy="230" r="2" fill="#000" />
-              <text x="380" y="233" fill="#000" fontSize="9" textAnchor="end">1</text>
-              <line x1="360" y1="230" x2="398" y2="230" stroke="#000" strokeWidth="1" />
-              <text x="370" y="225" fill="#000" fontSize="8">+5V</text>
-              
-              <circle cx="400" cy="270" r="2" fill="#000" />
-              <text x="380" y="273" fill="#000" fontSize="9" textAnchor="end">8</text>
-              <line x1="340" y1="270" x2="398" y2="270" stroke="#000" strokeWidth="1" />
-              <text x="350" y="265" fill="#000" fontSize="8">GND</text>
-              
-              <circle cx="400" cy="310" r="2" fill="#000" />
-              <text x="380" y="313" fill="#000" fontSize="9" textAnchor="end">2</text>
-              <line x1="320" y1="310" x2="398" y2="310" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="400" cy="350" r="2" fill="#000" />
-              <text x="380" y="353" fill="#000" fontSize="9" textAnchor="end">13</text>
-              <line x1="300" y1="350" x2="398" y2="350" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="600" cy="230" r="2" fill="#000" />
-              <text x="620" y="233" fill="#000" fontSize="9">A4</text>
-              <line x1="602" y1="230" x2="700" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="600" cy="270" r="2" fill="#000" />
-              <text x="620" y="273" fill="#000" fontSize="9">A5</text>
-              <line x1="602" y1="270" x2="720" y2="270" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="600" cy="310" r="2" fill="#000" />
-              <text x="620" y="313" fill="#000" fontSize="9">A0</text>
-              <line x1="602" y1="310" x2="680" y2="310" stroke="#000" strokeWidth="1" />
-
-              <rect x="50" y="50" width="100" height="140" fill="none" stroke="#000" strokeWidth="2" />
-              <text x="100" y="40" textAnchor="middle" fill="#000" fontSize="11" fontWeight="bold">HG1</text>
-              
-              <circle cx="150" cy="70" r="2" fill="#000" />
-              <text x="170" y="73" fill="#000" fontSize="9">1</text>
-              <line x1="152" y1="70" x2="280" y2="70" stroke="#000" strokeWidth="1" />
-              <line x1="280" y1="70" x2="280" y2="230" stroke="#000" strokeWidth="1" />
-              <line x1="280" y1="230" x2="398" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="150" cy="100" r="2" fill="#000" />
-              <text x="170" y="103" fill="#000" fontSize="9">2</text>
-              <line x1="152" y1="100" x2="260" y2="100" stroke="#000" strokeWidth="1" />
-              <line x1="260" y1="100" x2="260" y2="270" stroke="#000" strokeWidth="1" />
-              <line x1="260" y1="270" x2="338" y2="270" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="150" cy="130" r="2" fill="#000" />
-              <text x="170" y="133" fill="#000" fontSize="9">3</text>
-              <line x1="152" y1="130" x2="240" y2="130" stroke="#000" strokeWidth="1" />
-              <line x1="240" y1="130" x2="240" y2="150" stroke="#000" strokeWidth="1" />
-              <line x1="240" y1="150" x2="700" y2="150" stroke="#000" strokeWidth="1" />
-              <line x1="700" y1="150" x2="700" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="150" cy="160" r="2" fill="#000" />
-              <text x="170" y="163" fill="#000" fontSize="9">4</text>
-              <line x1="152" y1="160" x2="220" y2="160" stroke="#000" strokeWidth="1" />
-              <line x1="220" y1="160" x2="220" y2="170" stroke="#000" strokeWidth="1" />
-              <line x1="220" y1="170" x2="720" y2="170" stroke="#000" strokeWidth="1" />
-              <line x1="720" y1="170" x2="720" y2="270" stroke="#000" strokeWidth="1" />
-
-              <rect x="50" y="280" width="100" height="120" fill="none" stroke="#000" strokeWidth="2" />
-              <text x="100" y="270" textAnchor="middle" fill="#000" fontSize="11" fontWeight="bold">U1</text>
-              
-              <circle cx="150" cy="300" r="2" fill="#000" />
-              <text x="170" y="303" fill="#000" fontSize="9">1</text>
-              <line x1="152" y1="300" x2="280" y2="300" stroke="#000" strokeWidth="1" />
-              <line x1="280" y1="300" x2="280" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="150" cy="340" r="2" fill="#000" />
-              <text x="170" y="343" fill="#000" fontSize="9">2</text>
-              <line x1="152" y1="340" x2="200" y2="340" stroke="#000" strokeWidth="1" />
-              <line x1="200" y1="340" x2="200" y2="310" stroke="#000" strokeWidth="1" />
-              <line x1="200" y1="310" x2="398" y2="310" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="150" cy="370" r="2" fill="#000" />
-              <text x="170" y="373" fill="#000" fontSize="9">4</text>
-              <line x1="152" y1="370" x2="260" y2="370" stroke="#000" strokeWidth="1" />
-              <line x1="260" y1="370" x2="260" y2="270" stroke="#000" strokeWidth="1" />
-
-              <rect x="800" y="200" width="100" height="120" fill="none" stroke="#000" strokeWidth="2" />
-              <text x="850" y="190" textAnchor="middle" fill="#000" fontSize="11" fontWeight="bold">K1</text>
-              
-              <circle cx="800" cy="220" r="2" fill="#000" />
-              <text x="780" y="223" fill="#000" fontSize="9" textAnchor="end">+</text>
-              <line x1="700" y1="220" x2="798" y2="220" stroke="#000" strokeWidth="1" />
-              <line x1="700" y1="220" x2="700" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="800" cy="260" r="2" fill="#000" />
-              <text x="780" y="263" fill="#000" fontSize="9" textAnchor="end">-</text>
-              <line x1="720" y1="260" x2="798" y2="260" stroke="#000" strokeWidth="1" />
-              <line x1="720" y1="260" x2="720" y2="270" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="800" cy="300" r="2" fill="#000" />
-              <text x="780" y="303" fill="#000" fontSize="9" textAnchor="end">S</text>
-              <line x1="300" y1="350" x2="300" y2="450" stroke="#000" strokeWidth="1" />
-              <line x1="300" y1="450" x2="740" y2="450" stroke="#000" strokeWidth="1" />
-              <line x1="740" y1="450" x2="740" y2="300" stroke="#000" strokeWidth="1" />
-              <line x1="740" y1="300" x2="798" y2="300" stroke="#000" strokeWidth="1" />
-
-              <rect x="800" y="380" width="80" height="100" fill="none" stroke="#000" strokeWidth="2" />
-              <text x="840" y="370" textAnchor="middle" fill="#000" fontSize="11" fontWeight="bold">R1</text>
-              <line x1="820" y1="380" x2="860" y2="380" stroke="#000" strokeWidth="2" />
-              <line x1="825" y1="385" x2="855" y2="395" stroke="#000" strokeWidth="2" />
-              <line x1="830" y1="390" x2="850" y2="400" stroke="#000" strokeWidth="2" />
-              <line x1="835" y1="395" x2="845" y2="405" stroke="#000" strokeWidth="2" />
-              <line x1="820" y1="480" x2="860" y2="480" stroke="#000" strokeWidth="2" />
-              
-              <circle cx="800" cy="400" r="2" fill="#000" />
-              <text x="780" y="403" fill="#000" fontSize="9" textAnchor="end">1</text>
-              <line x1="700" y1="400" x2="798" y2="400" stroke="#000" strokeWidth="1" />
-              <line x1="700" y1="400" x2="700" y2="230" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="800" cy="440" r="2" fill="#000" />
-              <text x="780" y="443" fill="#000" fontSize="9" textAnchor="end">2</text>
-              <line x1="680" y1="440" x2="798" y2="440" stroke="#000" strokeWidth="1" />
-              <line x1="680" y1="440" x2="680" y2="310" stroke="#000" strokeWidth="1" />
-              <line x1="680" y1="310" x2="598" y2="310" stroke="#000" strokeWidth="1" />
-              
-              <circle cx="800" cy="460" r="2" fill="#000" />
-              <text x="780" y="463" fill="#000" fontSize="9" textAnchor="end">3</text>
-              <line x1="720" y1="460" x2="798" y2="460" stroke="#000" strokeWidth="1" />
-              <line x1="720" y1="460" x2="720" y2="270" stroke="#000" strokeWidth="1" />
-            </svg>
+    <div className="min-h-screen bg-background text-foreground p-4 md:p-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="text-center border-b-2 border-foreground pb-6 mb-8">
+          <p className="text-xs mb-2">ГОСТ 2.701-2008 (ЕСКД)</p>
+          <h1 className="text-2xl font-bold tracking-tight mb-1">ПРИНЦИПИАЛЬНАЯ ЭЛЕКТРИЧЕСКАЯ СХЕМА</h1>
+          <p className="text-sm">Система мониторинга Arduino UNO</p>
+          <div className="mt-4 text-xs">
+            <p>U<sub>пит</sub> = 5В, I<sub>общ</sub> = 143.5 мА</p>
           </div>
+        </div>
 
-          <div className="absolute bottom-0 right-0 border-2 border-black">
-            <table className="border-collapse text-[8pt]">
-              <tbody>
-                <tr>
-                  <td rowSpan={7} className="border border-black px-2 py-1 w-[40mm] align-top">
-                    <div className="text-[7pt] leading-tight">Перв. примен.</div>
-                  </td>
-                  <td className="border border-black px-2 py-1 text-center w-[17mm]">Справ. №</td>
-                  <td className="border border-black px-2 py-1 text-center w-[7mm]"></td>
-                  <td className="border border-black px-2 py-1 text-center w-[23mm]">Перв. примен.</td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Подп. и дата</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Инв. № дубл.</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                  <td rowSpan={5} className="border border-black px-2 py-1 text-center align-middle font-bold">Э3</td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Подп. и дата</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Взам. инв. №</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Инв. № подл.</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-2 py-1 text-center">Подп. и дата</td>
-                  <td className="border border-black px-2 py-1 text-center"></td>
-                </tr>
-                
-                <tr>
-                  <td rowSpan={3} className="border border-black px-2 py-1 align-middle text-center font-bold text-[11pt]">
-                    Система мониторинга<br/>Arduino UNO
-                  </td>
-                  <td className="border border-black px-1 text-[7pt]">Разраб.</td>
-                  <td className="border border-black px-2 py-1"></td>
-                  <td className="border border-black px-2 py-1"></td>
-                  <td rowSpan={3} className="border border-black px-2 py-1 align-middle text-center font-bold text-[10pt]">
-                    Схема<br/>электрическая<br/>принципиальная
-                  </td>
-                  <td className="border border-black px-2 py-1 text-center w-[15mm]">Лит.</td>
-                  <td className="border border-black px-2 py-1 text-center w-[12mm]">Лист</td>
-                  <td className="border border-black px-2 py-1 text-center w-[15mm]">Листов</td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-1 text-[7pt]">Пров.</td>
-                  <td className="border border-black px-2 py-1"></td>
-                  <td className="border border-black px-2 py-1"></td>
-                  <td rowSpan={2} className="border border-black px-2 py-1 text-center align-middle"></td>
-                  <td rowSpan={2} className="border border-black px-2 py-1 text-center align-middle font-bold">1</td>
-                  <td rowSpan={2} className="border border-black px-2 py-1 text-center align-middle font-bold">1</td>
-                </tr>
-                <tr>
-                  <td className="border border-black px-1 text-[7pt]">Н. контр.</td>
-                  <td className="border border-black px-2 py-1"></td>
-                  <td className="border border-black px-2 py-1"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div className="border-2 border-foreground p-8">
+          <svg viewBox="0 0 900 650" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M 0 0 L 8 4 L 0 8 Z" fill="#000" />
+              </marker>
+            </defs>
 
-          <div className="absolute left-[25mm] right-[5mm]" style={{ top: 'calc(297mm - 55mm)' }}>
-            <table className="w-full border-2 border-black border-collapse text-[8pt]">
-              <thead>
-                <tr className="border-b-2 border-black">
-                  <th className="border-r border-black px-2 py-1 text-left w-[30mm]">Поз. обозн.</th>
-                  <th className="border-r border-black px-2 py-1 text-left">Наименование</th>
-                  <th className="border-r border-black px-2 py-1 text-center w-[15mm]">Кол.</th>
-                  <th className="px-2 py-1 text-left w-[30mm]">Примечание</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-black">
-                  <td className="border-r border-black px-2 py-1 font-mono">DD1</td>
-                  <td className="border-r border-black px-2 py-1">Контроллер Arduino UNO R3 (ATmega328P)</td>
-                  <td className="border-r border-black px-2 py-1 text-center">1</td>
-                  <td className="px-2 py-1">5В, 50мА</td>
-                </tr>
-                <tr className="border-b border-black">
-                  <td className="border-r border-black px-2 py-1 font-mono">U1</td>
-                  <td className="border-r border-black px-2 py-1">Датчик температуры и влажности DHT22</td>
-                  <td className="border-r border-black px-2 py-1 text-center">1</td>
-                  <td className="px-2 py-1">3.3-5В, 2.5мА</td>
-                </tr>
-                <tr className="border-b border-black">
-                  <td className="border-r border-black px-2 py-1 font-mono">HG1</td>
-                  <td className="border-r border-black px-2 py-1">Индикатор жидкокристаллический 16×2, I²C</td>
-                  <td className="border-r border-black px-2 py-1 text-center">1</td>
-                  <td className="px-2 py-1">5В, 20мА</td>
-                </tr>
-                <tr className="border-b border-black">
-                  <td className="border-r border-black px-2 py-1 font-mono">K1</td>
-                  <td className="border-r border-black px-2 py-1">Реле электромагнитное, 5В, 1 канал</td>
-                  <td className="border-r border-black px-2 py-1 text-center">1</td>
-                  <td className="px-2 py-1">70мА</td>
-                </tr>
-                <tr>
-                  <td className="border-r border-black px-2 py-1 font-mono">R1</td>
-                  <td className="border-r border-black px-2 py-1">Резистор переменный 10кОм</td>
-                  <td className="border-r border-black px-2 py-1 text-center">1</td>
-                  <td className="px-2 py-1">&lt;1мА</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <rect x="350" y="250" width="200" height="150" fill="none" stroke="#000" strokeWidth="2.5" />
+            <text x="450" y="235" textAnchor="middle" fill="#000" fontSize="14" fontWeight="bold">DD1</text>
+            <text x="450" y="420" textAnchor="middle" fill="#000" fontSize="11">Arduino UNO (ATmega328P)</text>
+            
+            <circle cx="350" cy="270" r="3" fill="#000" />
+            <text x="330" y="275" fill="#000" fontSize="9" textAnchor="end">+5V</text>
+            
+            <circle cx="350" cy="300" r="3" fill="#000" />
+            <text x="330" y="305" fill="#000" fontSize="9" textAnchor="end">GND</text>
+            
+            <circle cx="350" cy="330" r="3" fill="#000" />
+            <text x="330" y="335" fill="#000" fontSize="9" textAnchor="end">D2</text>
+            
+            <circle cx="350" cy="360" r="3" fill="#000" />
+            <text x="330" y="365" fill="#000" fontSize="9" textAnchor="end">D13</text>
+            
+            <circle cx="550" cy="270" r="3" fill="#000" />
+            <text x="570" y="275" fill="#000" fontSize="9">A4</text>
+            
+            <circle cx="550" cy="300" r="3" fill="#000" />
+            <text x="570" y="305" fill="#000" fontSize="9">A5</text>
+            
+            <circle cx="550" cy="330" r="3" fill="#000" />
+            <text x="570" y="335" fill="#000" fontSize="9">A0</text>
 
+            <rect x="80" y="80" width="140" height="100" fill="none" stroke="#000" strokeWidth="2.5" />
+            <text x="150" y="65" textAnchor="middle" fill="#000" fontSize="12" fontWeight="bold">HG1</text>
+            <text x="150" y="195" textAnchor="middle" fill="#000" fontSize="10">LCD 16×2 (I²C)</text>
+            <circle cx="90" cy="95" r="2.5" fill="#000" />
+            <text x="100" y="98" fill="#000" fontSize="8">1 VCC</text>
+            <circle cx="90" cy="115" r="2.5" fill="#000" />
+            <text x="100" y="118" fill="#000" fontSize="8">2 GND</text>
+            <circle cx="90" cy="135" r="2.5" fill="#000" />
+            <text x="100" y="138" fill="#000" fontSize="8">3 SDA</text>
+            <circle cx="90" cy="155" r="2.5" fill="#000" />
+            <text x="100" y="158" fill="#000" fontSize="8">4 SCL</text>
+
+            <rect x="80" y="300" width="120" height="90" fill="none" stroke="#000" strokeWidth="2.5" />
+            <text x="140" y="285" textAnchor="middle" fill="#000" fontSize="12" fontWeight="bold">U1</text>
+            <text x="140" y="405" textAnchor="middle" fill="#000" fontSize="10">DHT22</text>
+            <circle cx="90" cy="320" r="2.5" fill="#000" />
+            <text x="100" y="323" fill="#000" fontSize="8">1 VCC</text>
+            <circle cx="90" cy="345" r="2.5" fill="#000" />
+            <text x="100" y="348" fill="#000" fontSize="8">2 DATA</text>
+            <circle cx="90" cy="370" r="2.5" fill="#000" />
+            <text x="100" y="373" fill="#000" fontSize="8">4 GND</text>
+
+            <rect x="680" y="230" width="120" height="100" fill="none" stroke="#000" strokeWidth="2.5" />
+            <text x="740" y="215" textAnchor="middle" fill="#000" fontSize="12" fontWeight="bold">K1</text>
+            <text x="740" y="345" textAnchor="middle" fill="#000" fontSize="10">Реле 5В</text>
+            <circle cx="690" cy="250" r="2.5" fill="#000" />
+            <text x="700" y="253" fill="#000" fontSize="8">VCC</text>
+            <circle cx="690" cy="280" r="2.5" fill="#000" />
+            <text x="700" y="283" fill="#000" fontSize="8">GND</text>
+            <circle cx="690" cy="310" r="2.5" fill="#000" />
+            <text x="700" y="313" fill="#000" fontSize="8">IN</text>
+
+            <rect x="680" y="430" width="120" height="100" fill="none" stroke="#000" strokeWidth="2.5" />
+            <text x="740" y="415" textAnchor="middle" fill="#000" fontSize="12" fontWeight="bold">R1</text>
+            <text x="740" y="545" textAnchor="middle" fill="#000" fontSize="10">10кΩ</text>
+            <circle cx="690" cy="450" r="2.5" fill="#000" />
+            <text x="700" y="453" fill="#000" fontSize="8">1</text>
+            <circle cx="690" cy="490" r="2.5" fill="#000" />
+            <text x="700" y="493" fill="#000" fontSize="8">2 OUT</text>
+            <circle cx="690" cy="510" r="2.5" fill="#000" />
+            <text x="700" y="513" fill="#000" fontSize="8">3</text>
+
+            <line x1="220" y1="95" x2="280" y2="95" stroke="#000" strokeWidth="1.5" />
+            <line x1="280" y1="95" x2="280" y2="270" stroke="#000" strokeWidth="1.5" />
+            <line x1="280" y1="270" x2="350" y2="270" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="240" y="90" fill="#000" fontSize="8">+5V</text>
+            
+            <line x1="220" y1="115" x2="260" y2="115" stroke="#000" strokeWidth="1.5" />
+            <line x1="260" y1="115" x2="260" y2="300" stroke="#000" strokeWidth="1.5" />
+            <line x1="260" y1="300" x2="350" y2="300" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="230" y="110" fill="#000" fontSize="8">GND</text>
+            
+            <line x1="220" y1="135" x2="240" y2="135" stroke="#000" strokeWidth="1.5" />
+            <line x1="240" y1="135" x2="240" y2="210" stroke="#000" strokeWidth="1.5" />
+            <line x1="240" y1="210" x2="620" y2="210" stroke="#000" strokeWidth="1.5" />
+            <line x1="620" y1="210" x2="620" y2="270" stroke="#000" strokeWidth="1.5" />
+            <line x1="620" y1="270" x2="550" y2="270" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="245" y="130" fill="#000" fontSize="8">SDA</text>
+            
+            <line x1="220" y1="155" x2="230" y2="155" stroke="#000" strokeWidth="1.5" />
+            <line x1="230" y1="155" x2="230" y2="190" stroke="#000" strokeWidth="1.5" />
+            <line x1="230" y1="190" x2="640" y2="190" stroke="#000" strokeWidth="1.5" />
+            <line x1="640" y1="190" x2="640" y2="300" stroke="#000" strokeWidth="1.5" />
+            <line x1="640" y1="300" x2="550" y2="300" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="235" y="150" fill="#000" fontSize="8">SCL</text>
+
+            <line x1="200" y1="320" x2="280" y2="320" stroke="#000" strokeWidth="1.5" />
+            <line x1="280" y1="320" x2="280" y2="270" stroke="#000" strokeWidth="1.5" />
+            <text x="230" y="315" fill="#000" fontSize="8">+5V</text>
+            
+            <line x1="200" y1="370" x2="260" y2="370" stroke="#000" strokeWidth="1.5" />
+            <line x1="260" y1="370" x2="260" y2="300" stroke="#000" strokeWidth="1.5" />
+            <text x="220" y="365" fill="#000" fontSize="8">GND</text>
+            
+            <line x1="200" y1="345" x2="250" y2="345" stroke="#000" strokeWidth="1.5" />
+            <line x1="250" y1="345" x2="250" y2="330" stroke="#000" strokeWidth="1.5" />
+            <line x1="250" y1="330" x2="350" y2="330" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="210" y="340" fill="#000" fontSize="8">DATA</text>
+
+            <line x1="550" y1="360" x2="600" y2="360" stroke="#000" strokeWidth="1.5" />
+            <line x1="600" y1="360" x2="600" y2="310" stroke="#000" strokeWidth="1.5" />
+            <line x1="600" y1="310" x2="690" y2="310" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="610" y="335" fill="#000" fontSize="8">D13</text>
+            
+            <line x1="550" y1="270" x2="610" y2="270" stroke="#000" strokeWidth="1.5" />
+            <line x1="610" y1="270" x2="610" y2="250" stroke="#000" strokeWidth="1.5" />
+            <line x1="610" y1="250" x2="690" y2="250" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="570" y="245" fill="#000" fontSize="8">+5V</text>
+            
+            <line x1="550" y1="300" x2="590" y2="300" stroke="#000" strokeWidth="1.5" />
+            <line x1="590" y1="300" x2="590" y2="280" stroke="#000" strokeWidth="1.5" />
+            <line x1="590" y1="280" x2="690" y2="280" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="570" y="275" fill="#000" fontSize="8">GND</text>
+
+            <line x1="550" y1="330" x2="660" y2="330" stroke="#000" strokeWidth="1.5" />
+            <line x1="660" y1="330" x2="660" y2="490" stroke="#000" strokeWidth="1.5" />
+            <line x1="660" y1="490" x2="690" y2="490" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="570" y="325" fill="#000" fontSize="8">A0</text>
+            
+            <line x1="610" y1="250" x2="610" y2="450" stroke="#000" strokeWidth="1.5" />
+            <line x1="610" y1="450" x2="690" y2="450" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            
+            <line x1="590" y1="280" x2="590" y2="510" stroke="#000" strokeWidth="1.5" />
+            <line x1="590" y1="510" x2="690" y2="510" stroke="#000" strokeWidth="1.5" markerEnd="url(#arrow)" />
+          </svg>
+        </div>
+
+        <div className="mt-8 border-t-2 border-foreground pt-4">
+          <table className="w-full text-xs border-collapse">
+            <thead>
+              <tr className="border-b border-foreground">
+                <th className="text-left py-2 border-r border-foreground px-2">Поз. обозн.</th>
+                <th className="text-left py-2 border-r border-foreground px-2">Наименование</th>
+                <th className="text-left py-2 border-r border-foreground px-2">U, В</th>
+                <th className="text-left py-2 px-2">I, мА</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-foreground">
+                <td className="py-1 border-r border-foreground px-2 font-mono">DD1</td>
+                <td className="py-1 border-r border-foreground px-2">Микроконтроллер Arduino UNO (ATmega328P)</td>
+                <td className="py-1 border-r border-foreground px-2 font-mono">5</td>
+                <td className="py-1 px-2 font-mono">50</td>
+              </tr>
+              <tr className="border-b border-foreground">
+                <td className="py-1 border-r border-foreground px-2 font-mono">U1</td>
+                <td className="py-1 border-r border-foreground px-2">Датчик температуры и влажности DHT22</td>
+                <td className="py-1 border-r border-foreground px-2 font-mono">3.3-5</td>
+                <td className="py-1 px-2 font-mono">2.5</td>
+              </tr>
+              <tr className="border-b border-foreground">
+                <td className="py-1 border-r border-foreground px-2 font-mono">HG1</td>
+                <td className="py-1 border-r border-foreground px-2">Дисплей жидкокристаллический LCD 16×2 с интерфейсом I²C</td>
+                <td className="py-1 border-r border-foreground px-2 font-mono">5</td>
+                <td className="py-1 px-2 font-mono">20</td>
+              </tr>
+              <tr className="border-b border-foreground">
+                <td className="py-1 border-r border-foreground px-2 font-mono">K1</td>
+                <td className="py-1 border-r border-foreground px-2">Реле электромагнитное 5В, 1 канал</td>
+                <td className="py-1 border-r border-foreground px-2 font-mono">5</td>
+                <td className="py-1 px-2 font-mono">70</td>
+              </tr>
+              <tr className="border-b border-foreground">
+                <td className="py-1 border-r border-foreground px-2 font-mono">R1</td>
+                <td className="py-1 border-r border-foreground px-2">Резистор переменный (потенциометр) 10кΩ</td>
+                <td className="py-1 border-r border-foreground px-2 font-mono">5</td>
+                <td className="py-1 px-2 font-mono">&lt;1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6 text-xs text-center border-t-2 border-foreground pt-4">
+          <p>Примечания: 1. Все значения указаны при T=+25°C. 2. Питание от USB или внешнего источника 7-12В.</p>
         </div>
       </div>
     </div>
